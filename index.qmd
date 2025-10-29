@@ -1,11 +1,30 @@
 ---
-title: "dashboards"
+title: "Star Wars Dashboard"
+author: "Kanani TimSing"
+format: dashboard
 ---
 
-This is a Quarto website.
+```{r, echo=false}
+library(tidyverse)
+library(plotly)
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+```
+
+## Row 1
+
+```{r, warning = false}
+ggplot(data = starwars, aes(x = mass, y = height)) +
+  geom_point()
+```
+
+## Row 2
 
 ```{r}
-1 + 1
+ggplot(data = starwars, aes(x = mass, y = height)) +
+  geom_point()
+```
+
+```{r}
+ggplot(data = starwars, aes(x = mass, y = height)) +
+  geom_point()
 ```
