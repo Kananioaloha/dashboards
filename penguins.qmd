@@ -1,0 +1,38 @@
+---
+title: "Penguins Dashboard"
+format:
+  dashboard:
+    theme: minty
+    nav-buttons: [github]
+---
+
+## Row {height="60%"}
+
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+library(janitor)   
+library(plotly)     
+library(knitr)      
+
+```
+
+```{r}
+#| title: "Histogram: Flipper Length by Species"
+#| fig-height: 5
+#| fig-width: 8
+#| echo: false
+#| warning: false
+#| message: false
+
+penguins <- readr::read_csv("data/penguins_lter.csv") |>
+  janitor::clean_names() |>
+  # make names consistent: culmen_* == bill_*
+  dplyr::rename(
+    bill_length_mm = culmen_length_mm,
+    bill_depth_mm  = culmen_depth_mm
+  )
+
+```

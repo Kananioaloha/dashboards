@@ -1,11 +1,13 @@
 project:
   type: website
-  output-dir: docs
+  output-dir: ../docs/dashboards
 
 website:
   title: "dashboards"
   navbar:
     left:
+      - href: dashboards/penguins.qmd
+        text: Penguins
       - href: index.qmd
         text: Home
       - about.qmd

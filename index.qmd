@@ -1,30 +1,52 @@
 ---
-title: "Star Wars Dashboard"
+title: "Dashboard"
 author: "Kanani TimSing"
 format: dashboard
 ---
 
-```{r, echo=false}
+```{r, echo = FALSE}
 library(tidyverse)
 library(plotly)
 
+library(readr)
+data <- read_csv("data/CS201.Work")
+
+
 ```
+
+# Page 1 hashtag space
 
 ## Row 1
 
-```{r, warning = false}
-ggplot(data = starwars, aes(x = mass, y = height)) +
+```{r, warning=FAlSE}
+
+p1 <- ggplot(data = starwars, aes(x = mass, y = height, text = name)) +
   geom_point()
+
+ggplotly(p1)
 ```
 
-## Row 2
-
-```{r}
-ggplot(data = starwars, aes(x = mass, y = height)) +
-  geom_point()
-```
+## Row 2 {tablet=""}
 
 ```{r}
-ggplot(data = starwars, aes(x = mass, y = height)) +
-  geom_point()
+#| title: Bar Chart
+
+
+p2 <- ggplot(data = starwars, aes(x = mass, y = height)) +
+  geom_bar(stat="identity")
+them(axis.title.x = element_text(angle = 45, vjust = .5, hjust = ))
+
+ggplotly(p2)
 ```
+
+```{r}
+#| title: Tab 2
+
+starwars <- starwars %>%
+  select(name, height, mass, gender, homeworld, species)
+
+knitr:kabel(starwars)
+
+```
+
+# Page 2 hashtag space
